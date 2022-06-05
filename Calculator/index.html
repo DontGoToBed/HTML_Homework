@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Calculator App</h1>
+        <input id="cal" type="text" disabled>
+        <div>
+            <button onclick="pressNumber(1)">1</button>
+            <button onclick="pressNumber(2)">2</button>
+            <button onclick="pressNumber(3)">3</button>
+            <button onclick="pressCal('+')">+</button>
+        </div>
+        <div>
+            <button onclick="pressNumber(4)">4</button>
+            <button onclick="pressNumber(5)">5</button>
+            <button onclick="pressNumber(6)">6</button>
+            <button onclick="pressCal('-')">-</button>
+        </div>
+        <div>
+            <button onclick="pressNumber(7)">7</button>
+            <button onclick="pressNumber(8)">8</button>
+            <button onclick="pressNumber(9)">9</button>
+            <button onclick="pressCal('x')">x</button>
+        </div>
+        <div>
+            <button onclick="pressNumber(0)">0</button>
+            <button onclick="cal()">=</button>
+            <button onclick="clearValue()">C</button>
+            <button onclick="pressCal('/')">/</button>
+        </div>
+
+        <script>
+            let calSign = null
+            let num1 = 0
+            //let num2 = 0
+            let result = 0
+            function pressNumber(num) {
+                inputvalue = document.getElementById("cal").value
+                let sum = inputvalue + num
+                document.getElementById("cal").value = sum
+                //console.log(sum)
+            }
+
+            function pressCal(cal) {
+                if(cal === '+') {calSign = '+'}
+                if(cal === '-') {calSign = '-'}
+                if(cal === 'x') {calSign = 'x'}
+                if(cal === '/') {calSign = '/'}
+                num1 = document.getElementById("cal").value
+                document.getElementById("cal").value =  ""
+                
+            }
+
+            function cal() {
+                if(calSign === '+') {result = Number(num1) + Number(document.getElementById("cal").value)}
+                if(calSign === '-') {result = Number(num1) - Number(document.getElementById("cal").value)}
+                if(calSign === 'x') {result = Number(num1) * Number(document.getElementById("cal").value)}
+                if(calSign === '/') {result = Number(num1) / Number(document.getElementById("cal").value)}
+                document.getElementById("cal").value = result
+                num1 = result
+            }
+
+            function clearValue() {
+                num1 = 0
+                calSign = null
+                document.getElementById("cal").value = ""
+            }
+        </script>
+    </body>
+</html>
