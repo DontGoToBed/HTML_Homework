@@ -1,0 +1,32 @@
+<body>
+    <div class="loginbox">
+    
+<link rel="stylesheet" href="style.css">
+<h1>Sign in Your account</h1>
+<img src="ania2.png"  class="avatar" >
+<p>
+    <input id="user" value=""placeholder="Email or Phone" type="text" class="email">
+</p>
+<p>
+    <input id="password" value="" placeholder="Password" type="password" class="pass">
+</p>
+<p>
+    <button onclick="handleSignIn()" class="in" > Sign in</button>
+</div>
+</p>
+<script>
+    let email = 'anny@email.com'
+    let password = '121212'
+    let phone = '55002200'
+    function handleSignIn() {
+    let emailInput = document.getElementById('user').value// ຮັບຄ່າຈາກ id email id="email"
+    let passwordInput =  document.getElementById('password').value // ຮັບຄ່າຈາກ id password id="password" 
+            if((emailInput == email || emailInput == phone) && passwordInput == password){
+                alert("Welcome Anny!")
+            }else{
+                alert("Sorry for that  T.T")
+            }
+        }
+
+</script>
+</body>
